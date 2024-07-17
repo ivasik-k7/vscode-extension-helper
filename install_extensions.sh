@@ -1,34 +1,32 @@
 #!/usr/bin/env bash
 # -*- coding: utf-8 -*-
 
-install_extensions() {
-    local code_command="$1"
-    local extensions_file="$2"
-
-    if ! command -v "$code_command" &>/dev/null; then
-        echo "Error: $code_command command not found. Make sure VS Code is installed."
-        exit 1
-    fi
-
-    if [ ! -f "$extensions_file" ]; then
-        echo "Error: Extensions file '$extensions_file' not found."
-        exit 1
-    fi
-
-    while IFS= read -r extension || [ -n "$extension" ]; do
-        "$code_command" --install-extension "$extension"
-    done <"$extensions_file"
-
-    echo "Extensions installed from $extensions_file"
-}
-
-if command -v code &>/dev/null; then
-    echo "Detected: Using stable version of VS Code"
-    install_extensions "code" "extensions.txt"
-elif command -v code-insiders &>/dev/null; then
-    echo "Detected: Using insiders version of VS Code"
-    install_extensions "code-insiders" "extensions.txt"
-else
-    echo "Error: Neither code nor code-insiders command found. Make sure VS Code or VS Code Insiders is installed."
+if [ $# -eq 0 ]; then
+    echo "Usage: $0 path_to_extensions_file"
     exit 1
 fi
+
+if [ ! -f "$1" ]; then
+    echo "Error: File '$1' not found or not readable."
+    exit 1
+fi
+
+if command -v code >/dev/null 2>&1; then
+    CODE_COMMAND="code"
+elif command -v code-insiders >/dev/null 2>&1; then
+    CODE_COMMAND="code-insiders"
+else
+    echo "Error: Neither 'code' nor 'code-insiders' is installed. Please install Visual Studio Code or Visual Studio Code Insiders."
+    exit 1
+fi
+
+echo "Using $CODE_COMMAND to install extensions..."
+
+while IFS= read -r extension; do
+    if [[ ! -z "$extension" ]]; then
+        echo "Installing $extension..."
+        $CODE_COMMAND --install-extension "$extension"
+    fi
+done <"$1"
+
+echo "All extensions installed."
