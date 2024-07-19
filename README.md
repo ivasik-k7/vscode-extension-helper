@@ -26,14 +26,25 @@ This repository contains Bash scripts to manage Visual Studio Code (VS Code) ext
 
    - Before running `install_extensions.sh`, ensure `extensions.txt` contains a list of extensions (each on a new line) you want to install.
 
-2. **Run `install_extensions.sh`**:
+2.1. **Run on Unix-based**:
    - Open a terminal or command prompt.
-   - Navigate to the directory where `install_extensions.sh` is located.
+   - Navigate to the directory where unix scripts is located.
    - Run the script:
+   
      ```bash
      bash install_extensions.sh file_with_extensions.txt
      ```
 
+2.2. **Run on Windows**:
+   - Open a terminal or command prompt.
+   - Navigate to the directory where unix scripts is located.
+   - Run the script:
+
+      ```shell
+      powershell.exe -File ./win/install_extensions.ps1 -ExtensionsFile "extensions-example.txt"
+      # OR
+      powershell.exe -File ./win/save_extensions.ps1
+      ```
 ## Prerequisites
 
 - **VS Code**: Ensure you have Visual Studio Code installed on your system.

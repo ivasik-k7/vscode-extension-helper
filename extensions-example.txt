@@ -1,4 +1,3 @@
-
 aaron-bond.better-comments
 asciidoctor.asciidoctor-vscode
 bmalehorn.shell-syntax
@@ -7,8 +6,6 @@ chrischinchilla.vscode-pandoc
 codezombiech.gitignore
 cstrap.python-snippets
 dahong.theme-bear
-dart-code.dart-code
-dart-code.flutter
 doggy8088.k8s-snippets
 eamodio.gitlens
 esbenp.prettier-vscode
@@ -24,7 +21,6 @@ jock.svg
 kennylong.kubernetes-yaml-formatter
 kevinrose.vsc-python-indent
 lizebang.bash-extension-pack
-localizely.flutter-intl
 mads-hartmann.bash-ide-vscode
 mathematic.vscode-pdf
 me-dutour-mathieu.vscode-github-actions
@@ -44,8 +40,6 @@ ms-toolsai.vscode-jupyter-slideshow
 ms-vscode.powershell
 ms-vscode.remote-explorer
 ms-vscode.remote-server
-mthuong.vscode-flutter-freezed-helper
-nash.awesome-flutter-snippets
 njpwerner.autodocstring
 pflannery.vscode-versionlens
 postman.postman-for-vscode
